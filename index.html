@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Шаурма Сити — шаурма, дёнеры и хот-доги в Норильске</title>
+<meta name="description" content="«Шаурма Сити» на Ленинградской, 3 к6: 12 видов шаурмы, «Мега»-порции, «Инферно», дёнеры, хот-доги и закуски. Ежедневно 11:00–21:00. Заказ: +7 906 900-53-11.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --line: rgba(0, 0, 0, .08);
+  --line-strong: rgba(0, 0, 0, .25);
+  --invalid-bg: #FDEEE4;
+  --bg: #0E1210;
+  --bg-2: #131915;
+  --paper: #1B231D;
+  --ink: #F1F5EE;
+  --ink-2: #A9B5A6;
+  --dark: #080B09;
+  --dark-2: #161E18;
+  --accent: #9BE15D;
+  --hot: #7CC43F;
+  --hot-dark: #5A9A26;
+  --on-hot: #0E1210;
+  --hot-soft: rgba(124, 196, 63, .16);
+  --gold: #C9F27B;
+  --glow: rgba(155, 225, 93, .22);
+  --frame: rgba(155, 225, 93, .5);
+  --header-bg: rgba(8, 11, 9, .92);
+  --line: rgba(255, 255, 255, .10);
+  --line-strong: rgba(255, 255, 255, .28);
+  --invalid-bg: rgba(230, 80, 60, .15);
+  --scale-grad: linear-gradient(90deg, #E9FBD6, #9BE15D 40%, #F2B233 72%, #E5482E);
+  --radius: 18px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .08), 0 8px 24px rgba(0, 0, 0, .10);
+  --shadow-lg: 0 2px 6px rgba(0, 0, 0, .12), 0 18px 40px rgba(0, 0, 0, .22);
+  --font-head: "Montserrat", "Arial Black", Arial, sans-serif;
+  --font-hand: "Caveat", "Segoe Print", cursive;
+  --font-body: "Manrope", "Segoe UI", Arial, sans-serif;
+  --header-h: 72px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--font-body); font-size: 17px; line-height: 1.6; color: var(--ink); background-color: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body.no-scroll { overflow: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.12; margin: 0; letter-spacing: -.01em; }
+h1 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
+h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+h3 { font-size: 1.25rem; }
+.hand { font-family: var(--font-hand); font-weight: 700; }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 26px; border: 2px solid transparent; border-radius: 999px; background: transparent; font-weight: 800; font-size: 1rem; text-decoration: none; white-space: nowrap; transition: background-color .2s, color .2s, border-color .2s, transform .15s; }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible, .cart-btn:focus-visible, .p-card:focus-visible, .choose__opt:focus-visible, .add:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.btn--hot { background: var(--hot); color: var(--on-hot); box-shadow: 0 4px 0 var(--hot-dark); }
+.btn--hot:hover { background: var(--hot-dark); }
+.btn--wa { background: #25D366; color: #06331A; box-shadow: 0 4px 0 #179848; }
+.btn--wa:hover { background: #3BE07A; }
+.btn--ghost { border-color: var(--ink); color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--bg); }
+.btn--ghost-light { border-color: rgba(255, 255, 255, .45); color: #fff; }
+.btn--ghost-light:hover { background: #fff; color: var(--ink); }
+.btn--block { width: 100%; }
+.is-bouncing { animation: btnBounce .55s cubic-bezier(.28, .84, .42, 1); }
+@keyframes btnBounce { 0% { transform: none; } 15% { transform: translateY(2px) scale(1.06, .9); } 40% { transform: translateY(-10px) scale(.96, 1.06); } 62% { transform: translateY(0) scale(1.04, .95); } 80% { transform: translateY(-3px); } 100% { transform: none; } }
+
+.header { position: sticky; top: 0; z-index: 50; height: var(--header-h); background: var(--header-bg); color: #fff; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, .1); }
+.header.is-scrolled { box-shadow: 0 6px 20px rgba(0, 0, 0, .25); }
+.header__inner { height: 100%; display: flex; align-items: center; gap: 28px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; line-height: 1; }
+.logo__mark { width: 40px; height: 40px; flex: none; }
+.logo__text { font-family: var(--font-head); font-weight: 800; font-size: 1.25rem; white-space: nowrap; }
+.logo__text small { display: block; font-family: var(--font-body); font-size: .62rem; letter-spacing: .16em; color: var(--accent); font-weight: 700; margin-top: 4px; text-transform: uppercase; }
+.nav { display: flex; gap: 24px; margin-left: auto; }
+.nav a { text-decoration: none; font-weight: 700; font-size: .96rem; position: relative; padding: 4px 0; white-space: nowrap; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: var(--hot); transform: scaleX(0); transform-origin: left; transition: transform .25s; }
+.nav a:hover::after { transform: scaleX(1); }
+.header__actions { display: flex; align-items: center; gap: 12px; }
+.header__phone { font-weight: 800; text-decoration: none; white-space: nowrap; color: var(--accent); }
+.cart-btn { display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 16px 0 14px; background: var(--hot); color: var(--on-hot); border: 0; border-radius: 999px; font-weight: 800; }
+.cart-btn:hover { background: var(--hot-dark); }
+.cart-btn svg { width: 22px; height: 22px; }
+.cart-btn.is-wiggling svg { animation: wiggle .5s ease; }
+@keyframes wiggle { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-14deg); } 60% { transform: rotate(10deg); } }
+.cart-count { display: inline-grid; place-items: center; min-width: 26px; height: 26px; padding: 0 7px; background: #fff; color: var(--hot-dark); border-radius: 999px; font-size: .85rem; font-weight: 800; }
+.cart-count.is-bumping { animation: countBump .6s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes countBump { 0% { transform: scale(1); } 30% { transform: scale(1.55); background: var(--accent); } 60% { transform: scale(.88); } 100% { transform: scale(1); } }
+.burger { display: none; width: 46px; height: 46px; border: 0; background: transparent; padding: 11px; flex-direction: column; justify-content: space-between; }
+.burger span { display: block; height: 2.5px; background: #fff; border-radius: 2px; transition: transform .25s, opacity .2s; }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(9.75px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9.75px) rotate(-45deg); }
+
+/* ---------- первый экран ---------- */
+.hero { position: relative; padding: 48px 0 64px; overflow: hidden; background: var(--dark); color: #fff; isolation: isolate; }
+#fxCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.hero__inner { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+.hero__kicker { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-weight: 800; font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; border: 1px solid rgba(255, 255, 255, .25); border-radius: 999px; padding: 6px 14px; margin: 0 0 18px; background: rgba(0, 0, 0, .25); }
+.hero h1 .hl { color: var(--hot); }
+.hero h1 .hl2 { color: var(--accent); }
+.hero__sub { font-size: 1.1rem; color: rgba(255, 255, 255, .8); max-width: 34em; margin: 22px 0 30px; }
+.hero__buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero__facts { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 28px; }
+.hero__facts li { display: flex; flex-direction: column; border-left: 3px solid var(--hot); padding-left: 14px; }
+.hero__facts b { font-family: var(--font-head); font-size: 1.4rem; white-space: nowrap; }
+.hero__facts span { font-size: .88rem; color: rgba(255, 255, 255, .7); max-width: 11em; line-height: 1.35; }
+.hero__art { position: relative; }
+.hero-photo { position: relative; aspect-ratio: 1 / 1; border-radius: 26px; overflow: hidden; background: #0a0a0a; border: 3px solid var(--frame); box-shadow: 0 0 0 10px rgba(255, 255, 255, .06), 0 30px 60px rgba(0, 0, 0, .5); }
+.hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-photo canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: screen; }
+.hero-award { position: absolute; left: -14px; top: -16px; z-index: 4; width: 104px; height: 104px; border-radius: 50%; display: grid; place-content: center; text-align: center; background: var(--dark-2); border: 2px solid var(--gold); color: #fff; box-shadow: var(--shadow-lg); transform: rotate(-10deg); line-height: 1.15; padding: 8px; }
+.hero-award b { font-family: var(--font-head); font-size: .72rem; color: var(--gold); }
+.hero-award span { font-size: .66rem; }
+
+.extras__photo--grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: none; box-shadow: none; }
+.extras__photo--grid img { border-radius: 12px; min-height: 0; }
+.skyline { position: absolute; left: 0; right: 0; bottom: 0; height: 190px; z-index: -2; pointer-events: none; opacity: .9;
+  background: linear-gradient(to top, rgba(155, 225, 93, .10), transparent 70%); }
+.skyline svg { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; }
+.skyline .win { fill: #C9F27B; animation: win 5s ease-in-out infinite; }
+.skyline .win:nth-child(3n) { animation-delay: -1.7s; animation-duration: 7s; }
+.skyline .win:nth-child(4n) { animation-delay: -3.1s; animation-duration: 4s; fill: #F2B233; }
+@keyframes win { 0%, 100% { opacity: .15; } 45%, 60% { opacity: .95; } }
+.city-sign { position: absolute; left: 50%; top: -24px; transform: translateX(-50%); z-index: 4; white-space: nowrap;
+  font-family: var(--font-head); font-weight: 900; letter-spacing: .14em; font-size: 1.05rem; padding: 7px 16px; border-radius: 12px;
+  color: #F1FFE4; background: rgba(8, 11, 9, .86); border: 2px solid #9BE15D;
+  text-shadow: 0 0 6px #9BE15D, 0 0 18px #7CC43F; box-shadow: 0 0 12px rgba(155, 225, 93, .55), inset 0 0 10px rgba(155, 225, 93, .25);
+  animation: sign 5s infinite; }
+@keyframes sign { 0%, 30%, 34%, 70%, 100% { opacity: 1; } 32%, 72% { opacity: .4; } }
+
+
+.ticker { position: relative; background: var(--accent); color: var(--dark); overflow: hidden; padding: 14px 0; }
+.ticker__track { display: flex; gap: 40px; width: max-content; animation: ticker 55s linear infinite; }
+.ticker:hover .ticker__track { animation-play-state: paused; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+.ticker__item { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; font-weight: 800; }
+.ticker__item i { font-style: normal; color: var(--hot-dark); }
+.ticker__item small { font-weight: 600; opacity: .7; }
+
+.section { padding: 96px 0; }
+.section--tight { padding: 0 0 96px; }
+.section--dark { background: var(--dark); color: #fff; }
+.section--alt { background: var(--bg-2); }
+.section__head { max-width: 700px; margin-bottom: 44px; }
+.section__kicker { color: var(--hot); font-size: 1.6rem; margin: 0 0 4px; }
+.section--dark .section__kicker { color: var(--accent); }
+.section__lead { color: var(--ink-2); font-size: 1.06rem; margin: 14px 0 0; }
+.section--dark .section__lead { color: rgba(255, 255, 255, .72); }
+.only-touch { display: none; }
+@media (hover: none) { .only-hover { display: none; } .only-touch { display: inline; } }
+
+/* ---------- карточки товаров (3D flip) ---------- */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; justify-content: center; }
+.p-wrap { display: flex; flex-direction: column; gap: 12px; }
+.p-card { perspective: 1200px; height: 420px; outline: none; border-radius: var(--radius); cursor: pointer; }
+.p-card__inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .75s cubic-bezier(.3, .7, .2, 1); }
+@media (hover: hover) { .p-card:hover .p-card__inner { transform: rotateY(180deg); } }
+.p-card:focus-visible .p-card__inner, .p-card.is-flipped .p-card__inner { transform: rotateY(180deg); }
+.p-card__face { position: absolute; inset: 0; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: var(--radius); overflow: hidden; background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); display: flex; flex-direction: column; }
+.p-card__photo { height: 250px; position: relative; background: #111; }
+.p-card__photo img { width: 100%; height: 100%; object-fit: cover; }
+.p-card__photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 55%, var(--paper)); }
+.p-card__badge, .p-card__hint { z-index: 1; }
+.p-card__badge { position: absolute; top: 12px; left: 12px; background: var(--dark); color: #fff; border-radius: 999px; padding: 4px 12px; font-size: .75rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.p-card__badge--hot { background: var(--hot); color: var(--on-hot); }
+.p-card__hint { position: absolute; top: 10px; right: 12px; font-family: var(--font-hand); font-size: 1.25rem; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.7); }
+.p-card__body { padding: 16px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+.p-card__name { font-family: var(--font-head); font-size: 1.15rem; }
+.p-card__meta { color: var(--ink-2); font-size: .92rem; margin-top: 4px; }
+.p-card__price { margin-top: auto; font-family: var(--font-head); font-size: 1.8rem; color: var(--hot); }
+.p-card__back { transform: rotateY(180deg); background: var(--dark); color: #fff; border-color: transparent; padding: 24px 22px; background-image: radial-gradient(ellipse at 100% 0%, var(--glow), transparent 60%); }
+.p-card__back h4 { font-size: 1.15rem; color: var(--accent); }
+.p-card__back p { color: rgba(255, 255, 255, .85); font-size: .95rem; margin: 10px 0 12px; }
+.p-card__back ul { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; }
+.p-card__back li { padding-left: 22px; position: relative; font-size: .93rem; }
+.p-card__back li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+.p-card__back blockquote { margin: auto 0 0; padding: 12px 14px; border-left: 3px solid var(--hot); background: rgba(255, 255, 255, .06); border-radius: 0 10px 10px 0; font-size: .9rem; color: rgba(255, 255, 255, .85); }
+.p-card__back blockquote small { display: block; margin-top: 6px; color: var(--accent); font-size: .78rem; }
+.p-wrap.is-highlight .p-card__face { box-shadow: 0 0 0 3px var(--accent), var(--shadow-lg); }
+
+/* ---------- вкладки меню ---------- */
+.menu-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: -14px 0 30px; }
+.menu-tab { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; border: 2px solid var(--line-strong); background: transparent; color: var(--ink); font-weight: 800; font-size: 1rem; transition: background-color .2s, border-color .2s, color .2s, transform .15s; }
+.menu-tab:hover { border-color: var(--accent); }
+.menu-tab:active { transform: translateY(1px); }
+.menu-tab small { opacity: .7; font-weight: 700; }
+.menu-tab[aria-selected="true"] { background: var(--hot); border-color: var(--hot); color: var(--on-hot); box-shadow: 0 4px 0 var(--hot-dark); }
+.panel-in { animation: hintIn .45s ease both; }
+.price-panel .extras { align-items: start; }
+.price-panel .extras__list { margin-top: 14px; }
+.price-slogan { font-family: var(--font-head); font-size: clamp(1.3rem, 2.6vw, 1.9rem); margin: 0 0 6px; }
+.price-lead { color: var(--ink-2); margin: 0 0 20px; max-width: 46em; }
+.price-photos { display: grid; grid-template-columns: 638fr 340fr; gap: 14px; height: 290px; margin-bottom: 24px; }
+.price-photos img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow-lg); }
+/* ---------- прайс (например, морепродукты) ---------- */
+.price-banner { position: relative; border-radius: var(--radius); overflow: hidden; height: 220px; margin-bottom: 28px; border: 1px solid var(--line); }
+.price-banner img { width: 100%; height: 100%; object-fit: cover; }
+.price-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg) 0%, rgba(0, 0, 0, 0) 65%); }
+.price-banner span { position: absolute; left: 28px; top: 50%; transform: translateY(-50%); z-index: 1; font-family: var(--font-head); font-size: clamp(1.4rem, 3vw, 2.2rem); color: #fff; max-width: 60%; line-height: 1.15; text-shadow: 0 2px 12px rgba(0, 0, 0, .6); }
+.price-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.price-col { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 22px 10px; }
+.price-col h3 { color: var(--gold); text-transform: uppercase; font-size: 1.05rem; letter-spacing: .04em; margin-bottom: 8px; }
+.price-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.price-row:last-child { border-bottom: 0; }
+.price-row__name { flex: 1; min-width: 0; font-weight: 600; }
+.price-row__price { color: var(--gold); font-weight: 800; white-space: nowrap; text-align: right; }
+.price-row__price small { display: block; font-weight: 600; color: var(--ink-2); font-size: .78rem; }
+.price-note { margin: 22px 0 0; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; }
+.price-note b { color: var(--gold); font-family: var(--font-head); font-weight: 700; }
+/* ---------- шкала ---------- */
+.scale { background: var(--paper); border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); padding: 34px 40px 30px; display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: center; }
+.scale__head p { color: var(--ink-2); margin: 8px 0 0; font-size: .98rem; }
+.scale__track-wrap { position: relative; padding-top: 64px; }
+.scale__track { height: 18px; border-radius: 99px; background: var(--bg-2); overflow: hidden; box-shadow: inset 0 1px 3px rgba(0, 0, 0, .15); }
+.scale__fill { height: 100%; width: 100%; border-radius: inherit; background: var(--scale-grad); clip-path: inset(0 100% 0 0 round 99px); transition: clip-path 2.2s cubic-bezier(.45, .05, .2, 1); }
+.scale.is-filled .scale__fill { clip-path: inset(0 0 0 0 round 99px); }
+.scale__labels { display: flex; justify-content: space-between; margin-top: 10px; font-size: .88rem; font-weight: 700; color: var(--ink-2); }
+.scale__markers { position: absolute; inset: 0 0 auto 0; height: 64px; }
+.scale__marker { position: absolute; bottom: 4px; transform: translate(-50%, 8px); display: flex; flex-direction: column; align-items: center; font-size: .8rem; font-weight: 800; white-space: nowrap; opacity: 0; transition: opacity .4s, transform .4s; }
+.scale__marker::after { content: ""; width: 2px; height: 14px; background: var(--ink); margin-top: 3px; }
+.scale__marker--up { bottom: 30px; }
+.scale__marker--up::after { height: 40px; }
+.scale.is-filled .scale__marker { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- как выбрать ---------- */
+.choose { display: grid; grid-template-columns: 1fr 1.25fr; gap: 28px; align-items: stretch; }
+.choose__options { display: grid; gap: 12px; align-content: start; }
+.choose__opt { display: flex; align-items: center; gap: 16px; text-align: left; padding: 16px 20px; border-radius: var(--radius); background: rgba(255, 255, 255, .06); border: 2px solid rgba(255, 255, 255, .14); color: #fff; transition: border-color .2s, background-color .2s, transform .2s; }
+.choose__opt:hover { border-color: var(--accent); transform: translateX(4px); }
+.choose__opt .emoji { font-size: 1.9rem; width: 44px; text-align: center; flex: none; }
+.choose__opt b { display: block; font-size: 1.05rem; }
+.choose__opt small { color: rgba(255, 255, 255, .65); font-size: .9rem; }
+.choose__opt[aria-selected="true"] { border-color: var(--hot); background: rgba(255, 255, 255, .1); }
+.choose__hint { position: relative; overflow: hidden; border-radius: var(--radius); min-height: 340px; background: #000; display: flex; }
+.choose__hint > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55; transition: opacity .3s; }
+.choose__hint::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .4) 60%, rgba(0, 0, 0, .15)); }
+.choose__body { position: relative; z-index: 2; align-self: flex-end; padding: 30px 30px 28px; width: 100%; }
+.choose__empty .hand { font-size: 2rem; color: var(--accent); }
+.choose__empty p { color: rgba(255, 255, 255, .8); max-width: 26em; margin: 4px 0 0; }
+.hint { animation: hintIn .45s ease both; }
+@keyframes hintIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.hint__label { font-family: var(--font-hand); font-size: 1.5rem; color: var(--accent); }
+.hint h3 { font-size: 1.6rem; margin: 2px 0 10px; }
+.hint p { color: rgba(255, 255, 255, .85); margin: 0 0 18px; }
+.hint__buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- ещё в меню ---------- */
+.extras { display: grid; grid-template-columns: 1fr 1.1fr; gap: 32px; align-items: center; }
+.extras__photo { border-radius: var(--radius); overflow: hidden; height: 380px; background: #111; box-shadow: var(--shadow-lg); }
+.extras__photo img { width: 100%; height: 100%; object-fit: cover; }
+.extras__list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 22px 0 22px; }
+.ex-item { display: flex; align-items: center; gap: 12px; background: var(--paper); border-radius: 14px; padding: 12px 14px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.ex-item > span { font-size: 1.6rem; flex: none; }
+.ex-item div { flex: 1; min-width: 0; }
+.ex-item b { display: block; line-height: 1.2; }
+.ex-item small { color: var(--ink-2); font-size: .82rem; }
+.ex-item .ex-price { color: var(--hot); font-weight: 800; font-size: .9rem; }
+.add { flex: none; display: inline-grid; place-items: center; width: 38px; height: 38px; border: 0; border-radius: 50%; background: var(--hot); color: var(--on-hot); font-weight: 800; font-size: 1.3rem; line-height: 1; box-shadow: 0 3px 0 var(--hot-dark); }
+.add:hover { background: var(--hot-dark); }
+
+/* ---------- почему мы ---------- */
+.why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.why__item { background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .14); border-radius: var(--radius); padding: 22px 20px; }
+.why__item span { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; background: rgba(255, 255, 255, .1); font-size: 1.7rem; margin-bottom: 14px; }
+.why__item b { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+.why__item small { color: rgba(255, 255, 255, .7); font-size: .92rem; line-height: 1.45; display: block; }
+
+/* ---------- отзывы ---------- */
+.rating { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-bottom: 28px; }
+.rating__score { display: flex; align-items: center; gap: 14px; background: var(--paper); border-radius: 14px; padding: 14px 22px; border: 1px solid var(--line); }
+.rating__score b { font-family: var(--font-head); font-size: 2.4rem; line-height: 1; }
+.rating__score span { font-size: .9rem; color: var(--ink-2); line-height: 1.35; }
+.stars { color: var(--hot); letter-spacing: 3px; }
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.review { background: var(--paper); border-radius: var(--radius); padding: 28px 26px 24px; border: 1px solid var(--line); box-shadow: var(--shadow); display: flex; flex-direction: column; position: relative; }
+.review::before { content: "“"; position: absolute; right: 20px; top: -4px; font-family: Georgia, serif; font-size: 5rem; color: var(--accent); opacity: .6; line-height: 1; }
+.review p { margin: 12px 0 20px; }
+.review footer { margin-top: auto; display: flex; flex-direction: column; }
+.review footer span { color: var(--ink-2); font-size: .88rem; }
+.reviews__more { margin-top: 26px; }
+
+/* ---------- доставка ---------- */
+.delivery { display: grid; grid-template-columns: 1fr 1fr 0.9fr; gap: 24px; }
+.card { background: var(--paper); border-radius: var(--radius); padding: 30px 28px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.card__icon { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--hot-soft); margin-bottom: 18px; font-size: 1.9rem; }
+.ticks { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
+.ticks li { position: relative; padding-left: 26px; }
+.ticks li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 12px; height: 7px; border-left: 2.5px solid #2BAF7C; border-bottom: 2.5px solid #2BAF7C; transform: rotate(-45deg); }
+.delivery__cta { border-radius: var(--radius); padding: 30px 28px; border: 2px dashed var(--ink-2); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px; }
+.delivery__cta .hand { font-size: 1.7rem; line-height: 1.15; margin: 0; color: var(--ink-2); }
+
+/* ---------- подвал ---------- */
+.footer { background: var(--dark); color: rgba(255, 255, 255, .85); padding: 72px 0 0; }
+.footer__inner { display: grid; grid-template-columns: 1fr 1.25fr; gap: 48px; }
+.footer h2 { color: #fff; margin-bottom: 22px; }
+.footer__list { margin: 0 0 28px; display: grid; gap: 16px; }
+.footer__list dt { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.footer__list dd { margin: 2px 0 0; font-size: 1.05rem; }
+.footer__list a { text-decoration: none; }
+.footer__buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+.footer__map { border-radius: var(--radius); overflow: hidden; min-height: 400px; background: #1a2230; border: 3px solid rgba(255, 255, 255, .15); }
+.footer__map iframe { width: 100%; height: 100%; min-height: 400px; border: 0; display: block; }
+.footer__bottom { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 28px; padding-bottom: 28px; margin-top: 56px; border-top: 1px solid rgba(255, 255, 255, .14); font-size: .88rem; color: rgba(255, 255, 255, .6); }
+.footer__bottom a { text-decoration: none; }
+
+/* ---------- корзина ---------- */
+.overlay { position: fixed; inset: 0; z-index: 80; background: rgba(0, 0, 0, .55); opacity: 0; transition: opacity .3s; }
+.overlay.is-open { opacity: 1; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 90; width: min(450px, 100%); background: var(--bg); box-shadow: -10px 0 40px rgba(0, 0, 0, .3); display: flex; flex-direction: column; transform: translateX(105%); transition: transform .38s cubic-bezier(.3, .7, .2, 1); visibility: hidden; }
+.drawer.is-open { transform: none; visibility: visible; }
+.drawer__head { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; background: var(--dark); color: #fff; }
+.icon-btn { width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, .14); color: #fff; font-size: 1rem; }
+.icon-btn:hover { background: var(--hot); }
+.drawer__body { flex: 1; overflow-y: auto; padding: 18px 24px; }
+.drawer__foot { padding: 16px 24px 22px; border-top: 1px dashed var(--line-strong); background: var(--paper); }
+.drawer__row { display: flex; justify-content: space-between; font-size: .95rem; margin-bottom: 6px; }
+.drawer__row--total { font-size: 1.15rem; margin: 6px 0 14px; }
+.drawer__row--total b { color: var(--hot); font-family: var(--font-head); font-size: 1.5rem; }
+.cart-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.cart-item { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; background: var(--paper); border-radius: 12px; padding: 12px 14px; border: 1px solid var(--line); }
+.cart-item__name { font-weight: 800; line-height: 1.25; }
+.cart-item__price { color: var(--ink-2); font-size: .85rem; }
+.qty { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; }
+.qty button { width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--line-strong); background: transparent; font-weight: 800; line-height: 1; }
+.qty span { min-width: 24px; text-align: center; font-weight: 800; }
+.cart-item__sum { font-weight: 800; color: var(--hot); text-align: right; }
+.cart-item__remove { display: block; margin-top: 6px; margin-left: auto; border: 0; background: none; color: var(--ink-2); font-size: .8rem; text-decoration: underline; padding: 0; }
+.cart-empty { text-align: center; padding: 50px 10px; }
+.cart-empty .hand { font-size: 2.2rem; margin: 0; color: var(--ink-2); }
+.cart-empty p { margin: 4px 0 20px; color: var(--ink-2); }
+.order { margin-top: 24px; display: grid; gap: 12px; }
+.order h4 { font-size: 1.1rem; }
+.order label { display: grid; gap: 4px; font-size: .88rem; font-weight: 700; }
+.order input[type="text"], .order input[type="tel"], .order textarea { font: inherit; font-weight: 500; font-size: 1rem; padding: 11px 14px; border-radius: 10px; border: 1.5px solid var(--line-strong); background: var(--paper); color: var(--ink); resize: vertical; }
+.order input:focus, .order textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.order .is-invalid { border-color: var(--hot); background: var(--invalid-bg); }
+.order fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 6px; }
+.order legend { font-size: .88rem; font-weight: 700; margin-bottom: 4px; }
+.order .radio { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: .95rem; }
+.order .radio input { accent-color: var(--hot); width: 18px; height: 18px; }
+.order__error { color: var(--hot-dark); font-size: .9rem; margin: 0; font-weight: 700; }
+.order-done { padding: 26px 4px; }
+.order-done .hand { font-size: 2.4rem; color: var(--hot); margin: 0; text-align: center; }
+.order-done > p { color: var(--ink-2); text-align: center; }
+.order-done pre { white-space: pre-wrap; font: inherit; font-size: .88rem; background: var(--paper); border: 1px dashed var(--line-strong); border-radius: 12px; padding: 14px; margin: 0 0 16px; }
+.order-done .btn { width: 100%; margin-bottom: 10px; }
+.order-done__note { font-size: .82rem; color: var(--ink-2); text-align: center; margin: 4px 0 0; }
+.fly-dot { position: fixed; z-index: 100; width: 22px; height: 22px; pointer-events: none; border-radius: 50%; background: var(--hot); box-shadow: 0 0 0 4px rgba(255,255,255,.7), 0 2px 8px rgba(0,0,0,.3); }
+.toast { position: fixed; left: 50%; bottom: 24px; z-index: 110; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; background: var(--dark); color: #fff; padding: 12px 20px; border-radius: 999px; font-weight: 700; font-size: .95rem; box-shadow: var(--shadow-lg); transition: opacity .3s, transform .3s; width: max-content; max-width: calc(100% - 32px); text-align: center; }
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+@media (max-width: 1120px) {
+  .nav { gap: 16px; }
+  .header__phone { display: none; }
+  .cart-btn__label { display: none; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .why { grid-template-columns: 1fr 1fr; }
+  .delivery { grid-template-columns: 1fr 1fr; }
+  .delivery__cta { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; }
+  .scale { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 900px) {
+  :root { --header-h: 64px; }
+  .burger { display: flex; }
+  .nav { position: fixed; top: var(--header-h); left: 0; right: 0; flex-direction: column; gap: 0; padding: 8px 24px 20px; background: var(--dark); border-bottom: 1px solid rgba(255, 255, 255, .15); box-shadow: 0 16px 30px rgba(0, 0, 0, .3); transform: translateY(-12px); opacity: 0; visibility: hidden; transition: transform .25s, opacity .25s, visibility .25s; }
+  .nav.is-open { transform: none; opacity: 1; visibility: visible; }
+  .nav a { padding: 14px 0; border-bottom: 1px dashed rgba(255, 255, 255, .15); font-size: 1.05rem; }
+  .nav a::after { display: none; }
+  .header__actions { margin-left: auto; }
+  .hero { padding: 20px 0 48px; }
+  .hero__inner { grid-template-columns: 1fr; gap: 24px; }
+  /* на телефоне сначала фото с анимацией, потом заголовок и кнопки */
+  .hero__art { order: -1; max-width: 480px; width: 100%; margin: 0 auto; }
+  .hero__text { display: flex; flex-direction: column; align-items: flex-start; }
+  .hero__buttons { margin-top: 22px; }
+  .hero__sub { order: 2; margin: 22px 0 0; }
+  .hero__facts { order: 3; margin-top: 28px; }
+  .choose, .extras { grid-template-columns: 1fr; }
+  .reviews, .footer__inner { grid-template-columns: 1fr; }
+  .section { padding: 72px 0; }
+  .section--tight { padding: 0 0 72px; }
+}
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .container { padding: 0 16px; }
+  .header__inner { gap: 10px; }
+  .logo__text { font-size: 1.05rem; }
+  .logo__text small { font-size: .52rem; letter-spacing: .1em; }
+  .logo__mark { width: 34px; height: 34px; }
+  .header__actions { gap: 6px; flex: none; }
+  .hero__kicker { font-size: .7rem; padding: 5px 12px; }
+  .hero__buttons { width: 100%; }
+  .hero__buttons .btn { flex: 1 1 100%; }
+  .hero__facts { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .hero__facts li { padding-left: 10px; }
+  .hero__facts b { font-size: clamp(.95rem, 4.8vw, 1.2rem); }
+  .hero__facts span { font-size: .76rem; }
+  .hero-award { width: 84px; height: 84px; left: -6px; top: -12px; }
+  .hero-award b { font-size: .58rem; }
+  .hero-award span { font-size: .56rem; }
+  .cards { grid-template-columns: 1fr; }
+  .price-cols { grid-template-columns: 1fr; }
+  .price-photos { height: 150px; gap: 8px; }
+  /* на телефоне все вкладки видны сразу: равные плитки в одну строку, значок над названием */
+  .menu-tabs { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px; margin: -14px 0 24px; }
+  .menu-tab { flex-direction: column; justify-content: center; gap: 2px; min-width: 0; padding: 10px 6px 9px; border-radius: 16px; font-size: .84rem; line-height: 1.15; text-align: center; }
+  .menu-tab__ico { font-size: 1.5rem; line-height: 1; margin-bottom: 2px; }
+  .menu-tab small { font-size: .72rem; }
+  .price-banner { height: 160px; }
+  .price-banner span { left: 18px; max-width: 80%; }
+  .p-card { height: 410px; }
+  .scale { padding: 24px 18px; }
+  .scale__marker { font-size: .66rem; }
+  .why { grid-template-columns: 1fr; }
+  .extras__list { grid-template-columns: 1fr; }
+  .extras__photo { height: 240px; }
+  .choose__body { padding: 22px 18px 20px; }
+  .delivery { grid-template-columns: 1fr; }
+  .delivery__cta { flex-direction: column; align-items: flex-start; }
+  .footer__bottom { flex-direction: column; }
+
+  .city-sign { font-size: .8rem; top: -16px; padding: 5px 11px; }
+  .skyline { height: 120px; }
+  .extras__photo--grid { height: 300px; }
+
+}
+/* самые узкие телефоны (до 380px): шапка без мелкой подписи, компактная корзина */
+@media (max-width: 380px) {
+  .logo__text small { display: none; }
+  .cart-btn { height: 42px; padding: 0 10px; gap: 6px; }
+  .burger { width: 42px; height: 42px; padding: 10px; }
+  .menu-tab { font-size: .78rem; padding: 9px 4px 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="header" id="top">
+  <div class="container header__inner">
+    <a href="#top" class="logo" aria-label="Шаурма Сити — на главную"><svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#161E18" stroke="#9BE15D" stroke-width="2"/><path d="M9 30V19h4v11M15 30V12h5v18M22 30V16h4v14M28 30V21h3v9" fill="#9BE15D"/><path d="M7 30.5h26" stroke="#C9F27B" stroke-width="2" stroke-linecap="round"/></svg><span class="logo__text">Шаурма Сити<small>кафе · Ленинградская, 3 к6</small></span></a>
+    <nav class="nav" id="nav" aria-label="Основная навигация">
+      <a href="#cards">Шаурма</a>
+      <a href="#cards" data-tab="fullmenu">Всё меню</a>
+      <a href="#cards" data-tab="snacks">Закуски</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#delivery">Доставка</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header__actions">
+      <a class="header__phone" href="tel:+79069005311">+7 906 900-53-11</a>
+      <button class="cart-btn" id="cartBtn" type="button" aria-label="Открыть корзину">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span class="cart-btn__label">Корзина</span><span class="cart-count" id="cartCount" aria-live="polite">0</span>
+      </button>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="skyline" aria-hidden="true"><svg viewBox="0 0 1200 190" preserveAspectRatio="none"><path fill="#0B110D" d="M0 190V120h60V80h50v40h40V60h70v60h30V95h55v95h20V40h80v150h25V100h60V70h45v120h30V110h70V55h60v135h25V85h55v105h30V125h50V75h65v115h40V105h60v85z"/><rect class="win" x="70" y="95" width="8" height="10"/><rect class="win" x="85" y="110" width="8" height="10"/><rect class="win" x="165" y="75" width="8" height="10"/><rect class="win" x="185" y="95" width="8" height="10"/><rect class="win" x="200" y="75" width="8" height="10"/><rect class="win" x="305" y="110" width="8" height="10"/><rect class="win" x="360" y="55" width="8" height="10"/><rect class="win" x="380" y="80" width="8" height="10"/><rect class="win" x="395" y="120" width="8" height="10"/><rect class="win" x="480" y="115" width="8" height="10"/><rect class="win" x="505" y="85" width="8" height="10"/><rect class="win" x="600" y="125" width="8" height="10"/><rect class="win" x="625" y="70" width="8" height="10"/><rect class="win" x="650" y="100" width="8" height="10"/><rect class="win" x="735" y="100" width="8" height="10"/><rect class="win" x="760" y="120" width="8" height="10"/><rect class="win" x="840" y="140" width="8" height="10"/><rect class="win" x="860" y="90" width="8" height="10"/><rect class="win" x="885" y="110" width="8" height="10"/><rect class="win" x="950" y="125" width="8" height="10"/><rect class="win" x="975" y="150" width="8" height="10"/><rect class="win" x="1030" y="120" width="8" height="10"/><rect class="win" x="1100" y="125" width="8" height="10"/><rect class="win" x="1130" y="150" width="8" height="10"/><rect class="win" x="1160" y="120" width="8" height="10"/></svg></div>
+  <canvas id="fxCanvas" aria-hidden="true"></canvas>
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="hero__kicker">Shawarma City · центр Норильска</p>
+      <h1><span class="hl">Шаурма</span> большого <span class="hl2">города</span></h1>
+      <p class="hero__sub">12 видов шаурмы, «Мега»-порции, огненная «Инферно» с Каролина рипер, дёнеры, хот-доги и закуски. Ленинградская, 3 к6 — каждый день с 11:00 до 21:00.</p>
+      <div class="hero__buttons">
+        <a href="#cards" class="btn btn--hot">Собрать заказ</a>
+        <a href="https://wa.me/79069005311" target="_blank" rel="noopener" class="btn btn--ghost-light">Заказать в WhatsApp</a>
+      </div>
+      <ul class="hero__facts"><li><b>12 видов</b><span>шаурмы + «Мега»</span></li><li><b>от 420 ₽</b><span>шаурма, хот-доги — от 300 ₽</span></li><li><b>11–21</b><span>каждый день</span></li></ul>
+    </div>
+    <div class="hero__art" aria-hidden="true">
+      <div class="hero-photo" id="heroPhoto">
+        <img src="hero.jpg" alt="" style="object-position:50% 55%">
+        <canvas id="steamCanvas"></canvas>
+      </div>
+      
+      <div class="city-sign">SHAWARMA CITY</div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Отзывы гостей"><div class="ticker__track" id="ticker"></div></div>
+
+<section class="section" id="cards">
+  <div class="container">
+    <div class="section__head"><p class="hand section__kicker">хиты кафе — состав на обороте карточки</p><h2>Наше меню</h2>
+      <p class="section__lead" id="cardsLead"><span class="only-hover">Наведите на карточку</span><span class="only-touch">Нажмите на карточку</span>, чтобы увидеть состав и отзыв гостя.</p></div>
+<div class="menu-tabs" role="tablist" aria-label="Разделы меню"><button class="menu-tab" type="button" role="tab" data-panel="cardsGrid" aria-selected="true"><span class="menu-tab__ico">🌯</span><span class="menu-tab__txt">Хиты</span><small>9</small></button><button class="menu-tab" type="button" role="tab" data-panel="fullmenu" aria-selected="false"><span class="menu-tab__ico">📋</span><span class="menu-tab__txt">Всё меню</span><small>37</small></button><button class="menu-tab" type="button" role="tab" data-panel="snacks" aria-selected="false"><span class="menu-tab__ico">🍟</span><span class="menu-tab__txt">Закуски и напитки</span><small>20</small></button></div>
+    <div class="cards" id="cardsGrid"></div>
+<div class="price-panel" id="fullmenu" hidden><p class="price-slogan">Шаурма, «Мега», дёнеры и хот-доги</p><p class="price-lead">Полное меню кафе. Нажмите «+», чтобы добавить в заказ.</p><div class="price-cols"><div class="price-col"><h3>Шаурма</h3><div class="price-row"><span class="price-row__name">Классическая</span><span class="price-row__price">450 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-0" aria-label="Добавить Классическая">+</button></div><div class="price-row"><span class="price-row__name">Острая</span><span class="price-row__price">520 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-1" aria-label="Добавить Острая">+</button></div><div class="price-row"><span class="price-row__name">Русская</span><span class="price-row__price">470 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-2" aria-label="Добавить Русская">+</button></div><div class="price-row"><span class="price-row__name">Сырная</span><span class="price-row__price">580 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-3" aria-label="Добавить Сырная">+</button></div><div class="price-row"><span class="price-row__name">Сырная с грибами</span><span class="price-row__price">610 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-4" aria-label="Добавить Сырная с грибами">+</button></div><div class="price-row"><span class="price-row__name">Грибная</span><span class="price-row__price">580 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-5" aria-label="Добавить Грибная">+</button></div><div class="price-row"><span class="price-row__name">Цезарь</span><span class="price-row__price">560 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-6" aria-label="Добавить Цезарь">+</button></div><div class="price-row"><span class="price-row__name">Гавайская</span><span class="price-row__price">510 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-7" aria-label="Добавить Гавайская">+</button></div><div class="price-row"><span class="price-row__name">Летняя</span><span class="price-row__price">460 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-8" aria-label="Добавить Летняя">+</button></div><div class="price-row"><span class="price-row__name">По-деревенски</span><span class="price-row__price">420 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-9" aria-label="Добавить По-деревенски">+</button></div><div class="price-row"><span class="price-row__name">По-деревенски с сыром и грибами</span><span class="price-row__price">610 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-10" aria-label="Добавить По-деревенски с сыром и грибами">+</button></div><div class="price-row"><span class="price-row__name">Вегетарианская</span><span class="price-row__price">420 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-11" aria-label="Добавить Вегетарианская">+</button></div></div><div class="price-col"><h3>Особое и «Мега»</h3><div class="price-row"><span class="price-row__name">Шаурдог с сосиской</span><span class="price-row__price">420 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-12" aria-label="Добавить Шаурдог с сосиской">+</button></div><div class="price-row"><span class="price-row__name">Двойной шаурдог</span><span class="price-row__price">520 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-13" aria-label="Добавить Двойной шаурдог">+</button></div><div class="price-row"><span class="price-row__name">Курочка терияки</span><span class="price-row__price">500 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-14" aria-label="Добавить Курочка терияки">+</button></div><div class="price-row"><span class="price-row__name">Том ям с курицей</span><span class="price-row__price">560 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-15" aria-label="Добавить Том ям с курицей">+</button></div><div class="price-row"><span class="price-row__name">Том ям с креветками</span><span class="price-row__price">700 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-16" aria-label="Добавить Том ям с креветками">+</button></div><div class="price-row"><span class="price-row__name">Инферно</span><span class="price-row__price">760 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-17" aria-label="Добавить Инферно">+</button></div><div class="price-row"><span class="price-row__name">Мега классическая</span><span class="price-row__price">560 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-18" aria-label="Добавить Мега классическая">+</button></div><div class="price-row"><span class="price-row__name">Мега острая</span><span class="price-row__price">610 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-19" aria-label="Добавить Мега острая">+</button></div><div class="price-row"><span class="price-row__name">Мега русская</span><span class="price-row__price">560 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-20" aria-label="Добавить Мега русская">+</button></div><div class="price-row"><span class="price-row__name">Мега сырная</span><span class="price-row__price">660 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-21" aria-label="Добавить Мега сырная">+</button></div><div class="price-row"><span class="price-row__name">Мега грибная</span><span class="price-row__price">610 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-22" aria-label="Добавить Мега грибная">+</button></div><div class="price-row"><span class="price-row__name">Мега курочка терияки</span><span class="price-row__price">610 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-23" aria-label="Добавить Мега курочка терияки">+</button></div><div class="price-row"><span class="price-row__name">Мега том ям с курицей</span><span class="price-row__price">660 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-24" aria-label="Добавить Мега том ям с курицей">+</button></div><div class="price-row"><span class="price-row__name">Мега том ям с креветками</span><span class="price-row__price">800 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-25" aria-label="Добавить Мега том ям с креветками">+</button></div><div class="price-row"><span class="price-row__name">Мега инферно</span><span class="price-row__price">850 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-26" aria-label="Добавить Мега инферно">+</button></div></div><div class="price-col"><h3>Дёнеры и хот-доги</h3><div class="price-row"><span class="price-row__name">Дёнер классический</span><span class="price-row__price">470 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-27" aria-label="Добавить Дёнер классический">+</button></div><div class="price-row"><span class="price-row__name">Дёнер с сыром</span><span class="price-row__price">520 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-28" aria-label="Добавить Дёнер с сыром">+</button></div><div class="price-row"><span class="price-row__name">Дёнер с сыром и грибами</span><span class="price-row__price">600 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-29" aria-label="Добавить Дёнер с сыром и грибами">+</button></div><div class="price-row"><span class="price-row__name">Дёнер острый</span><span class="price-row__price">520 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-30" aria-label="Добавить Дёнер острый">+</button></div><div class="price-row"><span class="price-row__name">Дёнер русский</span><span class="price-row__price">470 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-31" aria-label="Добавить Дёнер русский">+</button></div><div class="price-row"><span class="price-row__name">Хот-дог классический</span><span class="price-row__price">350 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-32" aria-label="Добавить Хот-дог классический">+</button></div><div class="price-row"><span class="price-row__name">Хот-дог с сыром</span><span class="price-row__price">400 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-33" aria-label="Добавить Хот-дог с сыром">+</button></div><div class="price-row"><span class="price-row__name">Хот-дог с сыром и грибами</span><span class="price-row__price">450 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-34" aria-label="Добавить Хот-дог с сыром и грибами">+</button></div><div class="price-row"><span class="price-row__name">Хот-дог острый</span><span class="price-row__price">400 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-35" aria-label="Добавить Хот-дог острый">+</button></div><div class="price-row"><span class="price-row__name">Хот-дог русский</span><span class="price-row__price">300 ₽<small>за шт</small></span><button class="add" type="button" data-add="s-36" aria-label="Добавить Хот-дог русский">+</button></div></div></div><p class="price-note"><span>Закуски, напитки, соусы и добавки — во вкладке «Закуски и напитки».</span><b>Время хорошего настроения</b></p></div>
+<div class="price-panel" id="snacks" hidden><div class="extras"><div class="extras__photo extras__photo--grid"><img src="kassa.jpg" alt="" loading="lazy"><img src="fasad.jpg" alt="" loading="lazy"></div><div><p class="hand section__kicker">к шаурме</p><h2>Закуски, напитки, соусы</h2><div class="extras__list" id="extrasList"></div><p class="section__lead" style="margin:0 0 20px">Добавки к шаурме: курица, сыр, шампиньоны, картофель фри, халапеньо. Соусы — по 60 ₽.</p><div class="hero__buttons"><a class="btn btn--wa" href="https://wa.me/79069005311" target="_blank" rel="noopener">Спросить в WhatsApp</a><a class="btn btn--ghost" href="tel:+79069005311">Позвонить</a></div></div></div></div>
+  </div>
+</section>
+
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="scale" id="scale">
+      <div class="scale__head"><h3>Насколько остро</h3><p>От нежной классики до «Инферно» с Каролина рипер.</p></div>
+      <div class="scale__track-wrap"><div class="scale__markers" id="scaleMarkers"></div><div class="scale__track"><div class="scale__fill"></div></div><div class="scale__labels"><span>Нежно</span><span>Пикантно</span><span>Инферно 🔥</span></div></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="section__head"><p class="hand section__kicker">почему «Шаурма Сити»</p><h2>Быстро, сочно, в центре</h2></div>
+    <div class="why" id="whyList"></div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section__head"><p class="hand section__kicker">что говорят</p><h2>Отзывы в 2ГИС</h2></div>
+    <div class="rating"><div class="rating__score"><b>3,9</b><span><span class="stars">★★★★★</span><br>68 оценок и 54 отзыва</span></div></div>
+    <div class="reviews" id="reviewsList"></div>
+    <div class="reviews__more"><a href="https://2gis.ru/norilsk/firm/70000001112490336/tab/reviews" target="_blank" rel="noopener" class="btn btn--ghost">Все отзывы в 2ГИС</a></div>
+  </div>
+</section>
+
+<section class="section section--alt" id="delivery">
+  <div class="container">
+    <div class="section__head"><p class="hand section__kicker">привезём или заберёте</p><h2>Доставка и оплата</h2></div>
+    <div class="delivery">
+      <article class="card"><div class="card__icon" aria-hidden="true">🛵</div><h3>Заказ</h3><ul class="ticks"><li>Навынос и на месте — Ленинградская, 3 к6</li><li>Заказ: <a href="tel:+79069005311"><b>+7 906 900-53-11</b></a></li><li>Telegram: <a href="https://t.me/+79069005311" target="_blank" rel="noopener"><b>написать</b></a></li><li>Ежедневно с 11:00 до 21:00</li></ul></article>
+      <article class="card"><div class="card__icon" aria-hidden="true">💳</div><h3>Оплата</h3><ul class="ticks"><li>Картой</li><li>Наличными</li><li>Переводом</li></ul></article>
+      <div class="delivery__cta"><p class="hand">город уже пахнет шаурмой</p><a href="#cards" class="btn btn--hot">Собрать заказ</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer" id="contacts">
+  <div class="container footer__inner">
+    <div>
+      <h2>Ждём в «Шаурма Сити»</h2>
+      <dl class="footer__list">
+        <div><dt>Адрес</dt><dd>Норильск, Ленинградская улица, 3 к6, 1 этаж<br>6-й микрорайон, Центральный район</dd></div>
+        <div><dt>Время работы</dt><dd>Ежедневно с 11:00 до 21:00</dd></div>
+        <div><dt>Заказ</dt><dd><a href="tel:+79069005311">+7 906 900-53-11</a></dd></div>
+      </dl>
+      <div class="footer__buttons"><a class="btn btn--hot" href="https://2gis.ru/norilsk/firm/70000001112490336" target="_blank" rel="noopener">Маршрут в 2ГИС</a><a class="btn btn--ghost-light" href="https://wa.me/79069005311" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+    <div class="footer__map"><iframe title="Карта: Шаурма Сити" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=88.174%2C69.3523%2C88.206%2C69.3613&amp;layer=mapnik&amp;marker=69.356824%2C88.190489"></iframe></div>
+  </div>
+  <div class="container footer__bottom"><span>© <span id="year">2026</span> Кафе «Шаурма Сити», Норильск. Цены — по меню в кафе, не являются публичной офертой.</span><a href="#top">Наверх ↑</a></div>
+</footer>
+
+<div class="overlay" id="overlay" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Корзина" aria-hidden="true">
+  <div class="drawer__head"><h3>Корзина</h3><button class="icon-btn" id="drawerClose" type="button" aria-label="Закрыть корзину">✕</button></div>
+  <div class="drawer__body">
+    <ul class="cart-list" id="cartList"></ul>
+    <div class="cart-empty" id="cartEmpty"><p class="hand">пока пусто</p><p>Выберите что-нибудь вкусное.</p><a href="#cards" class="btn btn--hot" data-close-drawer>Собрать заказ</a></div>
+    <form class="order" id="orderForm" novalidate>
+      <h4>Оформление</h4>
+      <label>Имя<input name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться"></label>
+      <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"></label>
+      <fieldset><legend>Получение</legend>
+        <label class="radio"><input type="radio" name="way" value="Доставка" checked> Доставка</label>
+        <label class="radio"><input type="radio" name="way" value="Заберу сам — Ленинградская, 3 к6"> Заберу сам — Ленинградская, 3 к6</label>
+      </fieldset>
+      <label id="addressField">Адрес<input name="address" type="text" autocomplete="street-address" placeholder="Улица, дом, квартира"></label>
+      <label>Комментарий<textarea name="comment" rows="2" placeholder="Пожелания к заказу"></textarea></label>
+      <p class="order__error" id="orderError" hidden>Заполните имя, телефон и адрес доставки.</p>
+    </form>
+    <div class="order-done" id="orderDone" hidden>
+      <p class="hand">почти готово!</p><p>Отправьте заказ — он сразу придёт к нам:</p>
+      <pre id="orderText"></pre>
+      <button class="btn btn--wa" type="button" id="sendWa">Отправить в WhatsApp</button>
+      <a class="btn btn--ghost" href="tel:+79069005311">Позвонить +7 906 900-53-11</a>
+      <button class="btn btn--ghost" type="button" id="newOrder">Новый заказ</button>
+      <p class="order-done__note">Сайт не принимает оплату — заказ подтверждают по телефону или в WhatsApp.</p>
+    </div>
+  </div>
+  <div class="drawer__foot" id="drawerFoot">
+    <div class="drawer__row"><span>Позиций</span><b id="cartItems">0</b></div>
+    <div class="drawer__row drawer__row--total"><span>Итого</span><b id="cartTotal">0 ₽</b></div>
+    <button class="btn btn--hot btn--block" type="submit" form="orderForm" id="orderSubmit">Оформить заказ</button>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+window.SITE = {"slug": "shaurma-city", "name": "Шаурма Сити", "wa": "79069005311", "products": [{"name": "Шаурма классическая", "price": 450, "badge": "классика", "photo": "klassika.jpg", "about": "Морковь по-корейски, курица, огурцы, помидоры, лук, фирменный соус.", "quote": ["Очень вкусная шаурма, быстро и вкусно", "Галина П."]}, {"name": "Шаурма сырная", "price": 580, "badge": "с сыром", "photo": "syrnaya.jpg", "about": "Пекинская капуста, курица, огурцы, помидоры, лук, сыр, фирменный соус.", "quote": ["Больше всего люблю сырную шаурму именно в этом месте", "Рада"]}, {"name": "Курочка терияки", "price": 500, "badge": "терияки", "photo": "teriyaki.jpg", "about": "Пекинская капуста, курица терияки, огурцы, помидоры, зелёный лук, фирменный соус.", "quote": ["Шаурма вкусная, сочная и сытная", "Артём П."]}, {"name": "Шаурма русская", "price": 470, "badge": "с картошкой", "photo": "russkaya.jpg", "about": "Маринад, капуста, курица, огурцы, помидоры, лук, картофель, фирменный соус.", "quote": ["Шаурма вкусная и свежая, делают всё очень быстро", "Александра В."]}, {"name": "По-деревенски", "price": 420, "badge": "с фри", "photo": "derevenski.jpg", "about": "Курица, картофель фри, лук, фирменный соус. С сыром и грибами — 610 ₽.", "quote": ["Шаурма сочная, вкусная", "Денис"]}, {"name": "Шаурма острая", "price": 520, "badge": "остро", "hot": true, "photo": "photo-1778168199427-4e839943d20f", "about": "Морковь по-корейски, курица, огурцы, лук, халапеньо, острый соус.", "quote": ["Шаурма огонь, готовят очень быстро", "Городской житель"]}, {"name": "Сырная с грибами", "price": 610, "badge": "с грибами", "photo": "photo-1633321702518-7feccafb94d5", "about": "Морковь по-корейски, курица, помидоры, сыр, шампиньоны, бекон, фирменный соус.", "quote": ["Сочная шаурма — бомба", "Кирилл З."]}, {"name": "Шаурма «Инферно»", "price": 760, "badge": "🔥 огонь", "hot": true, "photo": "photo-1719282431723-9d0f4370d4bc", "about": "Курица, халапеньо, Каролина рипер и соус-экстракт из пяти острых соусов. Для смелых.", "quote": ["Шаурма была топовая!!! Облизывали пальчики", "Анжела К."]}, {"name": "Шаурдог", "price": 420, "badge": "особое", "photo": "photo-1638368593249-7cadb261e8b3", "about": "Сосиска, морковь по-корейски, картофель фри, лук, барбекю, фирменный соус. Двойной — 520 ₽.", "quote": ["Очень вкусно, не дорого, быстро готовят", "Городской житель"]}], "extras": [{"icon": "🍟", "name": "Картофель фри 150 г", "price": 220}, {"icon": "🍟", "name": "Картофель фри 250 г", "price": 300}, {"icon": "🍟", "name": "Картофель фри 400 г", "price": 390}, {"icon": "🥔", "name": "Картофель по-деревенски 150 г", "price": 220}, {"icon": "🍗", "name": "Наггетсы (6–7 шт)", "price": 250}, {"icon": "🧀", "name": "Сырные палочки / шарики", "price": 280}, {"icon": "🧅", "name": "Луковые кольца", "price": 260}, {"icon": "🥤", "name": "Кола 0,5 л", "price": 150}, {"icon": "🥤", "name": "Кола 1 л", "price": 250}, {"icon": "🍵", "name": "Чай 0,5 л", "price": 150}, {"icon": "🍵", "name": "Чай 1 л", "price": 200}, {"icon": "🧃", "name": "Сок 0,25 л", "price": 150}, {"icon": "🧃", "name": "Сок 1 л", "price": 250}, {"icon": "⚡", "name": "Энергетик 0,25 л", "price": 170}, {"icon": "⚡", "name": "Энергетик 0,5 л", "price": 250}, {"icon": "🥫", "name": "Соус (сырный, чесночный, терияки, барбекю, острый, фирменный)", "price": 60}, {"icon": "🍗", "name": "Добавка: курица", "price": 140}, {"icon": "🧀", "name": "Добавка: сыр", "price": 60}, {"icon": "🍄", "name": "Добавка: шампиньоны", "price": 80}, {"icon": "🌶️", "name": "Добавка: халапеньо", "price": 60}], "moods": [], "scale": [["Классическая", 12], ["Сырная", 15], ["Терияки", 22], ["Острая", 62], ["Мега острая", 70], ["Инферно", 98]], "ticker": [["Великолепная шаверма! Самая лучшая в НПР", "Apple User"], ["Шаурма огонь, готовят очень быстро", "Городской житель"], ["Очень вкусные дёнеры, спасибо", "Nuxa 147"], ["Сочная шаурма — бомба", "Кирилл З."], ["Вкусно очень! Приятные работницы", "Дарина С."], ["Шаурма вкусная, сочная и сытная", "Артём П."]], "why": [["⚡", "Быстро", "«Делают всё очень быстро» — гости это отмечают."], ["🔥", "«Инферно»", "Каролина рипер и пять острых соусов — для смелых."], ["🍽️", "«Мега»-порции", "Любую шаурму можно взять в большом размере."], ["🧑‍🍳", "Как попросите", "Добавим или уберём ингредиенты по вашему желанию."]], "reviews": [["Великолепная шаверма!!! Самая лучшая в НПР. Цены нормальные, приемлемые. Ходим только сюда. Прекрасное обслуживание", "Apple User", "2ГИС, апрель 2026"], ["Попросил положить в шаурму определённые ингредиенты, и всё сделали именно так, как я хотел. Шаурма получилась вкусная, сочная и сытная", "Артём П.", "2ГИС, октябрь 2026"], ["Хожу часто сюда, шаурма вкусная и свежая, делают всё очень быстро, доброжелательная и приятная девушка Виктория", "Александра В.", "2ГИС, апрель 2026"]], "price_items": [["Классическая", 450, "шт"], ["Острая", 520, "шт"], ["Русская", 470, "шт"], ["Сырная", 580, "шт"], ["Сырная с грибами", 610, "шт"], ["Грибная", 580, "шт"], ["Цезарь", 560, "шт"], ["Гавайская", 510, "шт"], ["Летняя", 460, "шт"], ["По-деревенски", 420, "шт"], ["По-деревенски с сыром и грибами", 610, "шт"], ["Вегетарианская", 420, "шт"], ["Шаурдог с сосиской", 420, "шт"], ["Двойной шаурдог", 520, "шт"], ["Курочка терияки", 500, "шт"], ["Том ям с курицей", 560, "шт"], ["Том ям с креветками", 700, "шт"], ["Инферно", 760, "шт"], ["Мега классическая", 560, "шт"], ["Мега острая", 610, "шт"], ["Мега русская", 560, "шт"], ["Мега сырная", 660, "шт"], ["Мега грибная", 610, "шт"], ["Мега курочка терияки", 610, "шт"], ["Мега том ям с курицей", 660, "шт"], ["Мега том ям с креветками", 800, "шт"], ["Мега инферно", 850, "шт"], ["Дёнер классический", 470, "шт"], ["Дёнер с сыром", 520, "шт"], ["Дёнер с сыром и грибами", 600, "шт"], ["Дёнер острый", 520, "шт"], ["Дёнер русский", 470, "шт"], ["Хот-дог классический", 350, "шт"], ["Хот-дог с сыром", 400, "шт"], ["Хот-дог с сыром и грибами", 450, "шт"], ["Хот-дог острый", 400, "шт"], ["Хот-дог русский", 300, "шт"]], "fx": "embers", "steam": [0.2, 0.8, 0.4]};
+(function () {
+  'use strict';
+  var S = window.SITE;
+  var IMG = function (id, w) { return !/^photo-/.test(id) ? id : 'https://images.unsplash.com/' + id + '?w=' + (w || 700) + '&q=75&auto=format&fit=crop'; };
+  var $ = function (sel, root) { return (root || document).querySelector(sel); };
+  var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
+  var rub = function (n) { return n.toLocaleString('ru-RU') + ' ₽'; };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]; }); };
+
+  var ITEMS = {};
+  S.products.forEach(function (p, i) { ITEMS['p-' + i] = { name: p.name, price: p.price }; });
+  S.extras.forEach(function (x, i) { if (x.price) ITEMS['x-' + i] = { name: x.name, price: x.price }; });
+  (S.price_items || []).forEach(function (x, i) { ITEMS['s-' + i] = { name: x[0] + ' (' + x[2] + ')', price: x[1] }; });
+
+  /* ---------- разделы из данных ---------- */
+  var tick = S.ticker.map(function (t) { return '<span class="ticker__item"><i>★★★★★</i>«' + esc(t[0]) + '» <small>— ' + esc(t[1]) + ', 2ГИС</small></span>'; }).join('');
+  $('#ticker').innerHTML = tick + tick;
+
+  $('#cardsGrid').innerHTML = S.products.map(function (p, i) {
+    return '<div class="p-wrap reveal" id="card-' + i + '">' +
+      '<div class="p-card" tabindex="0" aria-label="' + esc(p.name) + ': подробнее"><div class="p-card__inner">' +
+        '<div class="p-card__face"><div class="p-card__photo"><img src="' + IMG(p.photo, 700) + '" alt="" loading="lazy"><span class="p-card__badge' + (p.hot ? ' p-card__badge--hot' : '') + '">' + esc(p.badge) + '</span><span class="p-card__hint">подробнее ↻</span></div>' +
+          '<div class="p-card__body"><div class="p-card__name">' + esc(p.name) + '</div><div class="p-card__meta">' + esc(p.about) + '</div><div class="p-card__price">' + rub(p.price) + '</div></div></div>' +
+        '<div class="p-card__face p-card__back"><h4>' + esc(p.name) + '</h4>' +
+          (p.comp ? '<ul>' + p.comp.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' : '<p>' + esc(p.about) + '</p>') +
+          (p.quote ? '<blockquote>«' + esc(p.quote[0]) + '»<small>— ' + esc(p.quote[1]) + ', отзыв в 2ГИС</small></blockquote>' : '') +
+        '</div></div></div>' +
+      '<button class="btn btn--hot" type="button" data-add="p-' + i + '">В корзину · ' + rub(p.price) + '</button></div>';
+  }).join('');
+  var touch = window.matchMedia('(hover: none)');
+  $$('.p-card').forEach(function (card) {
+    card.addEventListener('click', function () { if (touch.matches) card.classList.toggle('is-flipped'); });
+    card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('is-flipped'); } });
+    card.addEventListener('blur', function () { card.classList.remove('is-flipped'); });
+  });
+
+  var tabs = $$('.menu-tab');
+  function showPanel(id) {
+    tabs.forEach(function (t) {
+      var on = t.dataset.panel === id, panel = document.getElementById(t.dataset.panel);
+      t.setAttribute('aria-selected', String(on));
+      panel.hidden = !on;
+      if (on) { panel.classList.remove('panel-in'); void panel.offsetWidth; panel.classList.add('panel-in'); }
+    });
+    $('#cardsLead').hidden = id !== 'cardsGrid';
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { showPanel(t.dataset.panel); }); });
+  $$('a[data-tab]').forEach(function (a) { a.addEventListener('click', function () { showPanel(a.dataset.tab); }); });
+
+  $('#scaleMarkers').innerHTML = S.scale.map(function (m, i) {
+    return '<span class="scale__marker' + (i % 2 ? ' scale__marker--up' : '') + '" style="left:' + m[1] + '%;transition-delay:' + (0.25 + m[1] / 50).toFixed(2) + 's">' + esc(m[0]) + '</span>';
+  }).join('');
+
+  if ($('#chooseOpts')) $('#chooseOpts').innerHTML = S.moods.map(function (m, i) {
+    return '<button class="choose__opt" role="tab" type="button" data-mood="' + i + '" aria-selected="false"><span class="emoji">' + m.emoji + '</span><span><b>' + esc(m.title) + '</b><small>' + esc(m.sub) + '</small></span></button>';
+  }).join('');
+
+  if ($('#extrasList')) $('#extrasList').innerHTML = S.extras.map(function (x, i) {
+    return '<div class="ex-item"><span>' + x.icon + '</span><div><b>' + esc(x.name) + '</b>' +
+      (x.price ? '<span class="ex-price">' + rub(x.price) + '</span>' + (x.note ? ' <small>· ' + esc(x.note) + '</small>' : '') : '<small>' + esc(x.note || 'цену уточняйте') + '</small>') +
+      '</div>' + (x.price ? '<button class="add" type="button" data-add="x-' + i + '" aria-label="Добавить ' + esc(x.name) + '">+</button>' : '') + '</div>';
+  }).join('');
+
+  $('#whyList').innerHTML = S.why.map(function (w) { return '<div class="why__item reveal"><span>' + w[0] + '</span><b>' + esc(w[1]) + '</b><small>' + esc(w[2]) + '</small></div>'; }).join('');
+  $('#reviewsList').innerHTML = S.reviews.map(function (r) { return '<article class="review"><div class="stars" aria-label="5 из 5">★★★★★</div><p>«' + esc(r[0]) + '»</p><footer><b>' + esc(r[1]) + '</b><span>' + esc(r[2]) + '</span></footer></article>'; }).join('');
+
+  /* ---------- шкала ---------- */
+  (function () {
+    var block = $('#scale');
+    if (!('IntersectionObserver' in window)) { block.classList.add('is-filled'); return; }
+    var io = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { block.classList.add('is-filled'); io.disconnect(); } }, { threshold: 0.5 });
+    io.observe(block);
+  })();
+
+  /* ---------- как выбрать ---------- */
+  $$('.choose__opt').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      $$('.choose__opt').forEach(function (b) { b.setAttribute('aria-selected', b === btn ? 'true' : 'false'); });
+      var m = S.moods[btn.dataset.mood], p = S.products[m.idx];
+      $('#hintImg').src = IMG(p.photo, 900);
+      $('#hintBody').innerHTML = '<div class="hint"><div class="hint__label">' + esc(m.label) + '</div><h3>' + esc(p.name) + ' — ' + rub(p.price) + '</h3><p>' + esc(m.why) + '</p>' +
+        '<div class="hint__buttons"><button class="btn btn--hot" type="button" data-add="p-' + m.idx + '">В корзину · ' + rub(p.price) + '</button>' +
+        '<button class="btn btn--ghost-light" type="button" data-show="' + m.idx + '">Показать в меню</button></div></div>';
+    });
+  });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-show]');
+    if (!b) return;
+    if (tabs.length) showPanel('cardsGrid');
+    var wrap = $('#card-' + b.dataset.show), r = wrap.getBoundingClientRect();
+    window.scrollTo({ top: Math.max(0, r.top + window.scrollY - (window.innerHeight - r.height) / 2), behavior: 'smooth' });
+    wrap.classList.add('is-highlight');
+    var card = $('.p-card', wrap);
+    setTimeout(function () { card.classList.add('is-flipped'); }, 700);
+    setTimeout(function () { card.classList.remove('is-flipped'); wrap.classList.remove('is-highlight'); }, 3600);
+  });
+
+  /* ---------- корзина ---------- */
+  var KEY = S.slug + '-cart', cart = {};
+  try { cart = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { cart = {}; }
+  Object.keys(cart).forEach(function (id) { if (!ITEMS[id] || !(cart[id] > 0)) delete cart[id]; });
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) { /* без хранилища — ок */ } }
+  function count() { return Object.keys(cart).reduce(function (n, id) { return n + cart[id]; }, 0); }
+  function total() { return Object.keys(cart).reduce(function (n, id) { return n + cart[id] * ITEMS[id].price; }, 0); }
+  var countEl = $('#cartCount'), cartBtn = $('#cartBtn');
+  function restartAnim(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
+  function updateCount(animate) { countEl.textContent = count(); if (animate) { restartAnim(countEl, 'is-bumping'); restartAnim(cartBtn, 'is-wiggling'); } }
+  document.addEventListener('animationend', function (e) { var c = e.target.classList; if (c) c.remove('is-bouncing', 'is-bumping', 'is-wiggling'); });
+  function fly(fromEl, done) {
+    var from = fromEl.getBoundingClientRect(), to = countEl.getBoundingClientRect(), el = document.createElement('div');
+    el.className = 'fly-dot';
+    var x0 = from.left + from.width / 2 - 11, y0 = from.top + from.height / 2 - 11, x1 = to.left + to.width / 2 - 11, y1 = to.top + to.height / 2 - 11;
+    el.style.left = x0 + 'px'; el.style.top = y0 + 'px'; document.body.appendChild(el);
+    var finished = false, finish = function () { if (finished) return; finished = true; el.remove(); done(); };
+    setTimeout(finish, 700);
+    if (!el.animate) { finish(); return; }
+    var dx = x1 - x0, dy = y1 - y0;
+    var a = el.animate([{ transform: 'translate(0,0) scale(1)' }, { transform: 'translate(' + dx * 0.5 + 'px,' + (Math.min(dy, 0) * 0.5 - 90) + 'px) scale(1.3)', offset: 0.5 }, { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(.4)', opacity: .7 }], { duration: 650, easing: 'cubic-bezier(.4,0,.6,1)' });
+    a.onfinish = finish; a.oncancel = finish;
+  }
+  function addToCart(id, btn) {
+    if (!ITEMS[id]) return;
+    cart[id] = (cart[id] || 0) + 1; save();
+    if (btn) restartAnim(btn, 'is-bouncing');
+    var done = function () { updateCount(true); renderCart(); };
+    if (btn) fly(btn, done); else done();
+    toast('«' + ITEMS[id].name + '» в корзине');
+  }
+  document.addEventListener('click', function (e) { var b = e.target.closest('[data-add]'); if (b) addToCart(b.dataset.add, b); });
+
+  var drawer = $('#drawer'), overlay = $('#overlay'), form = $('#orderForm'), done = $('#orderDone'), foot = $('#drawerFoot'), overlayTimer;
+  function openDrawer() { clearTimeout(overlayTimer); renderCart(); overlay.hidden = false; void overlay.offsetWidth; overlay.classList.add('is-open'); drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden', 'false'); document.body.classList.add('no-scroll'); setTimeout(function () { $('#drawerClose').focus(); }, 50); }
+  function closeDrawer() { overlay.classList.remove('is-open'); drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden', 'true'); document.body.classList.remove('no-scroll'); overlayTimer = setTimeout(function () { overlay.hidden = true; }, 300); }
+  function renderCart() {
+    var ids = Object.keys(cart), empty = ids.length === 0, showingDone = !done.hidden;
+    $('#cartEmpty').hidden = !empty || showingDone; form.hidden = empty || showingDone; foot.hidden = empty || showingDone; $('#cartList').hidden = showingDone;
+    $('#cartList').innerHTML = ids.map(function (id) {
+      var it = ITEMS[id];
+      return '<li class="cart-item"><div><div class="cart-item__name">' + esc(it.name) + '</div><div class="cart-item__price">' + rub(it.price) + '</div>' +
+        '<div class="qty"><button type="button" data-qty="-1" data-id="' + id + '" aria-label="Меньше">−</button><span>' + cart[id] + '</span><button type="button" data-qty="1" data-id="' + id + '" aria-label="Больше">+</button></div></div>' +
+        '<div><div class="cart-item__sum">' + rub(cart[id] * it.price) + '</div><button class="cart-item__remove" type="button" data-remove="' + id + '">убрать</button></div></li>';
+    }).join('');
+    $('#cartItems').textContent = count(); $('#cartTotal').textContent = rub(total());
+  }
+  $('#cartList').addEventListener('click', function (e) {
+    var q = e.target.closest('[data-qty]'), r = e.target.closest('[data-remove]');
+    if (q) { cart[q.dataset.id] += Number(q.dataset.qty); if (cart[q.dataset.id] <= 0) delete cart[q.dataset.id]; } else if (r) delete cart[r.dataset.remove]; else return;
+    save(); updateCount(true); renderCart();
+  });
+  function syncAddress() { $('#addressField').hidden = form.querySelector('input[name="way"]:checked').value !== 'Доставка'; }
+  form.addEventListener('change', function (e) { if (e.target.name === 'way') syncAddress(); });
+  form.addEventListener('input', function (e) { e.target.classList.remove('is-invalid'); $('#orderError').hidden = true; });
+  var orderText = '';
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = form.elements, way = form.querySelector('input[name="way"]:checked').value, ok = true;
+    if (f.name.value.trim().length < 2) { f.name.classList.add('is-invalid'); ok = false; }
+    if (f.phone.value.replace(/\D/g, '').length < 10) { f.phone.classList.add('is-invalid'); ok = false; }
+    if (way === 'Доставка' && f.address.value.trim().length < 4) { f.address.classList.add('is-invalid'); ok = false; }
+    $('#orderError').hidden = ok;
+    if (!ok) return;
+    var lines = Object.keys(cart).map(function (id) { return '• ' + ITEMS[id].name + ' × ' + cart[id] + ' = ' + rub(cart[id] * ITEMS[id].price); });
+    orderText = 'Заказ с сайта «' + S.name + '»\n' + lines.join('\n') + '\nИтого: ' + rub(total()) + '\n\nИмя: ' + f.name.value.trim() + '\nТелефон: ' + f.phone.value.trim() + '\n' + way + (way === 'Доставка' ? ': ' + f.address.value.trim() : '') + (f.comment.value.trim() ? '\nКомментарий: ' + f.comment.value.trim() : '');
+    $('#orderText').textContent = orderText; done.hidden = false; renderCart();
+  });
+  $('#sendWa').addEventListener('click', function () { window.open('https://wa.me/' + S.wa + '?text=' + encodeURIComponent(orderText), '_blank', 'noopener'); });
+  $('#newOrder').addEventListener('click', function () { cart = {}; save(); updateCount(true); done.hidden = true; form.reset(); syncAddress(); renderCart(); });
+  cartBtn.addEventListener('click', openDrawer);
+  $('#drawerClose').addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  $$('[data-close-drawer]').forEach(function (a) { a.addEventListener('click', closeDrawer); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer(); });
+  var toastEl = $('#toast'), toastTimer;
+  function toast(text) { toastEl.textContent = text; toastEl.classList.add('is-visible'); clearTimeout(toastTimer); toastTimer = setTimeout(function () { toastEl.classList.remove('is-visible'); }, 2200); }
+
+  /* ---------- шапка, меню, переходы ---------- */
+  var header = $('.header'), burger = $('#burger'), nav = $('#nav');
+  function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  burger.addEventListener('click', function () { var open = burger.getAttribute('aria-expanded') !== 'true'; burger.setAttribute('aria-expanded', String(open)); nav.classList.toggle('is-open', open); });
+  $$('a', nav).forEach(function (a) { a.addEventListener('click', function () { burger.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); }); });
+  /* Прокручиваем сами, а не через адрес «#раздел»: так ссылки работают
+     и в обычном браузере, и во встроенных просмотрщиках, где такие переходы заблокированы. */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    var id = a.getAttribute('href').slice(1), target = !id || id === 'top' ? null : document.getElementById(id);
+    if (id && id !== 'top' && !target) return;
+    e.preventDefault();
+    var top = target ? target.getBoundingClientRect().top + window.scrollY - header.offsetHeight - 12 : 0;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  });
+  (function () {
+    $$('.section__head, .choose, .extras, .review, .card, .delivery__cta, .scale').forEach(function (el) { el.classList.add('reveal'); });
+    var els = $$('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('is-visible'); }); return; }
+    var io = new IntersectionObserver(function (en) { en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ---------- анимации первого экрана ---------- */
+  function loop(el, stepFn) {
+    var running = false, last = 0, visible = true;
+    function frame(now) { if (!running) return; var dt = Math.min((now - last) / 1000, 0.05); last = now; stepFn(dt); requestAnimationFrame(frame); }
+    function start() { if (running || !visible || document.hidden) return; running = true; last = performance.now(); requestAnimationFrame(frame); }
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) start(); else running = false; }).observe(el);
+    document.addEventListener('visibilitychange', function () { if (document.hidden) running = false; else start(); });
+    start();
+  }
+  function fitCanvas(canvas, w, h) { var dpr = Math.min(window.devicePixelRatio || 1, 2); canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); var ctx = canvas.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); return ctx; }
+
+  /* частицы по всему первому экрану: снег, пузырьки, искры или лепестки — задаётся в данных */
+  (function () {
+    var hero = $('.hero'), canvas = $('#fxCanvas'), mode = S.fx || 'snow';
+    if (!canvas.getContext || mode === 'none') return;
+    var ctx, W, H, ps = [], t = 0;
+    function make(anywhere) {
+      var z = Math.random();
+      var p = { x: Math.random() * W, z: z, ph: Math.random() * 6.28, sway: 10 + Math.random() * 25, r: 0.8 + z * 2.6, a: 0.3 + z * 0.55 };
+      if (mode === 'bubbles') { p.r = 1.5 + z * 6; p.vy = -(20 + z * 50); p.y = anywhere ? Math.random() * H : H + 10; p.a = 0.25 + z * 0.45; }
+      else if (mode === 'embers') { p.r = 0.8 + z * 2; p.vy = -(30 + z * 60); p.y = anywhere ? Math.random() * H : H + 10; }
+      else { p.vy = 18 + z * 55; p.y = anywhere ? Math.random() * H : -10; }
+      return p;
+    }
+    function layout() { W = hero.clientWidth; H = hero.clientHeight; ctx = fitCanvas(canvas, W, H); var n = Math.round(W * H / (mode === 'bubbles' ? 11000 : 7000)); while (ps.length < n) ps.push(make(true)); ps.length = n; }
+    layout();
+    if ('ResizeObserver' in window) new ResizeObserver(layout).observe(hero); else window.addEventListener('resize', layout);
+    loop(hero, function (dt) {
+      t += dt; ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < ps.length; i++) {
+        var p = ps[i];
+        p.y += p.vy * dt; p.x += Math.sin(t * 0.8 + p.ph) * p.sway * dt;
+        if ((p.vy > 0 && p.y > H + 10) || (p.vy < 0 && p.y < -10)) { ps[i] = make(false); continue; }
+        if (mode === 'bubbles') {
+          ctx.globalAlpha = p.a; ctx.strokeStyle = 'rgba(200,240,255,.9)'; ctx.lineWidth = 1.2;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.stroke();
+          ctx.globalAlpha = p.a * 0.8; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(p.x - p.r * 0.35, p.y - p.r * 0.35, p.r * 0.25, 0, 6.283); ctx.fill();
+        } else if (mode === 'embers') {
+          var fl = 0.6 + 0.4 * Math.sin(t * 20 + p.ph);
+          var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4); g.addColorStop(0, 'rgba(255,230,160,' + p.a * fl + ')'); g.addColorStop(1, 'rgba(255,90,20,0)');
+          ctx.globalAlpha = 1; ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 4, 0, 6.283); ctx.fill();
+        } else {
+          ctx.globalAlpha = p.a; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+        }
+      }
+      ctx.globalAlpha = 1;
+    });
+  })();
+
+  /* пар над горячим блюдом на фото */
+  (function () {
+    var box = $('#heroPhoto'), canvas = $('#steamCanvas'), img = $('img', box), st = S.steam;
+    if (!canvas.getContext || !st) return;
+    var ctx, W, H, K, ex0, ex1, ey, parts = [], acc = 0, t = 0;
+    var pos = (img.style.objectPosition || '50% 50%').split(' ').map(function (v) { return parseFloat(v) / 100; });
+    var sprite = document.createElement('canvas'); sprite.width = sprite.height = 96;
+    var sc = sprite.getContext('2d'), g = sc.createRadialGradient(48, 48, 0, 48, 48, 48);
+    g.addColorStop(0, 'rgba(255,248,238,1)'); g.addColorStop(.4, 'rgba(255,248,238,.5)'); g.addColorStop(1, 'rgba(255,248,238,0)');
+    sc.fillStyle = g; sc.fillRect(0, 0, 96, 96);
+    function layout() {
+      W = box.clientWidth; H = box.clientHeight; if (!W) return; ctx = fitCanvas(canvas, W, H);
+      var nw = img.naturalWidth || 800, nh = img.naturalHeight || 600, s = Math.max(W / nw, H / nh), dw = nw * s, dh = nh * s;
+      var ox = (W - dw) * pos[0], oy = (H - dh) * pos[1];
+      ex0 = ox + st[0] * dw; ex1 = ox + st[1] * dw; ey = oy + st[2] * dh; K = W / 440;
+    }
+    function step(dt) {
+      t += dt; acc += dt * 22;
+      while (acc > 1) { parts.push({ x: ex0 + (ex1 - ex0) * Math.random(), y: ey + (Math.random() - 0.5) * 20 * K, vy: -(24 + Math.random() * 20) * K, life: 3 + Math.random() * 2.5, age: 0, s0: (16 + Math.random() * 12) * K, s1: (80 + Math.random() * 70) * K, a: 0.09 + Math.random() * 0.08, ph: Math.random() * 6.28 }); acc -= 1; }
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i]; p.age += dt;
+        if (p.age >= p.life) { parts.splice(i, 1); continue; }
+        var rise = Math.max(0, (ey - p.y) / H);
+        p.x += (Math.sin(p.y * 0.02 / K + t * 0.9) * 20 + Math.sin(p.y * 0.05 / K - t * 1.4 + p.ph) * 9) * K * (0.3 + rise * 2) * dt;
+        p.y += p.vy * dt;
+      }
+    }
+    layout();
+    for (var n = 0; n < 160; n++) step(1 / 40);
+    if (!img.complete) img.addEventListener('load', layout);
+    if ('ResizeObserver' in window) new ResizeObserver(layout).observe(box); else window.addEventListener('resize', layout);
+    loop(box, function (dt) {
+      step(dt); ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < parts.length; i++) {
+        var p = parts[i], tt = p.age / p.life, a = p.a * Math.min(1, tt / 0.15) * Math.pow(1 - tt, 1.5), s = p.s0 + (p.s1 - p.s0) * Math.pow(tt, 0.8);
+        ctx.globalAlpha = a; ctx.drawImage(sprite, p.x - s / 2, p.y - s * 0.6, s, s * 1.2);
+      }
+      ctx.globalAlpha = 1;
+    });
+  })();
+
+  syncAddress();
+  $('#year').textContent = new Date().getFullYear();
+  updateCount(false);
+  renderCart();
+})();
+</script>
+</body>
+</html>
